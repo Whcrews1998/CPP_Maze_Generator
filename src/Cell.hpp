@@ -1,8 +1,13 @@
 #ifndef CELL_HPP
 #define CELL_HPP
+#include <iostream>
+#include <SDL.h>
 
 class Cell {
     public:
+
+        Cell();
+
         bool walls[4];
         enum Direction {
             NORTH,
@@ -11,13 +16,15 @@ class Cell {
             WEST
         };
 
-        void render(/*SDL_Renderer*/);
-        bool getWall(Direction dir);
-        void setWall(Direction dir, bool val);
+        void init(int x, int y);
+        void render(SDL_Renderer* render);
+        bool getWall(Direction dir) { return walls[dir]; };
+        void setWall(Direction dir, bool val) { walls[dir] = val; };
         
 
     private:
-        // SDL_Rect rect
+        int x;
+        int y;
         static int cellSize;
 };
 
