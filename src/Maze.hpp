@@ -1,17 +1,17 @@
 #ifndef MAZE_HPP
 #define MAZE_HPP
 #include "Cell.hpp"
-
+#include <SDL.h>
 class Maze {
     public:
-        Maze(int w, int h);
+        Maze(int numColumns, int numRows); // width, height
         void genMaze();
-        void render(/*SDL_Renderer*/);
+        void render(SDL_Renderer* render);
 
     private:
         Cell** map; 
-        const int width;
-        const int height;
+        int width;
+        int height;
 };
 
 #endif 
