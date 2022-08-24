@@ -9,6 +9,8 @@ class Cell {
         Cell();
 
         bool walls[4];
+        static int cellSize;
+
         enum Direction {
             NORTH,
             EAST,
@@ -25,7 +27,6 @@ class Cell {
     private:
         int x;
         int y;
-        static int cellSize;
 };
 
 #endif 
