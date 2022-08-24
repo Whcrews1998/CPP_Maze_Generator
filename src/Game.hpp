@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <SDL.h>
-#include "Cell.hpp"
+#include "Maze.hpp"
 
 class Game {
     public:
@@ -19,6 +19,7 @@ class Game {
         bool running() {return isRunning;};
     private:
         bool isRunning;
+        Maze* maze;
         SDL_Window* window;
         SDL_Renderer* renderer;
 

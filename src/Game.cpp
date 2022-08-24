@@ -1,7 +1,7 @@
 #include "Game.hpp"
 
 Game::Game() {
-
+    maze = new Maze(32, 32);
 } 
 
 Game::~Game() {
@@ -59,7 +59,7 @@ void Game::render() {
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
     SDL_RenderClear(renderer);
     // Draw Maze
-
+    maze->render(renderer);
     // Present
     SDL_RenderPresent(renderer);
 }
