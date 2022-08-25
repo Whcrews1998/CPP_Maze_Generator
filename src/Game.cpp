@@ -1,7 +1,9 @@
 #include "Game.hpp"
 
 Game::Game() {
-    maze = new Maze(32, 32);
+    width = 0;
+    height = 0;
+    maze = nullptr;
 } 
 
 Game::~Game() {
@@ -9,8 +11,14 @@ Game::~Game() {
 }
 
 void Game::init(const char* title, int xpos, int ypos, bool fullscreen) {
-    int width = 620; //CELL_SIZE * CELL_COLUMN_SIZE;
-    int height = 420; //CELL_SIZE * CELL_ROW_SIZE;
+
+    if (!maze)  {
+        std::cout << "Please load Maze before running init method..." << std::endl;
+        return;
+    }
+
+    width = maze->getWidth();
+    height = maze->getHeight();
 
     int flag = 0;
     if (fullscreen) 
@@ -18,7 +26,7 @@ void Game::init(const char* title, int xpos, int ypos, bool fullscreen) {
 
     if (SDL_Init(SDL_INIT_EVERYTHING)  == 0) {
         std::cout << "SDL Initialized!" << std::endl;
-        window = SDL_CreateWindow(title, xpos, ypos, width, height, flag);
+        window = SDL_CreateWindow(title, xpos, ypos, width * Cell::cellSize, height * Cell::cellSize, flag);
 
         if (window) 
             std::cout << "Window created successfully" << std::endl;
@@ -37,6 +45,7 @@ void Game::init(const char* title, int xpos, int ypos, bool fullscreen) {
         isRunning = false;
     }
 }
+
 void Game::handleEvents() {
     SDL_Event event;
     SDL_PollEvent(&event);

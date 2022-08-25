@@ -10,7 +10,9 @@ class Game {
         Game();
         ~Game();
 
+        void loadMaze(Maze* newMaze) {maze = newMaze;};
         void init(const char* title, int xpos, int ypos, bool fullscreen);
+
         void handleEvents();
         void update();
         void render();
@@ -18,7 +20,10 @@ class Game {
 
         bool running() {return isRunning;};
     private:
+        int width;
+        int height;
         bool isRunning;
+
         Maze* maze;
         SDL_Window* window;
         SDL_Renderer* renderer;
