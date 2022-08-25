@@ -13,7 +13,9 @@ const int FPS = 20;
     Game* game = nullptr;
     game = new Game();
 
+    game->loadMaze(new Maze(10, 10));
     game->init("Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, false);
+
     while (game->running()) {
 
         frameStart = SDL_GetTicks();
@@ -33,5 +35,4 @@ const int FPS = 20;
 
     return 0;
 
-    return 0;
 }
