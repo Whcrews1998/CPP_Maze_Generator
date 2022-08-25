@@ -8,6 +8,9 @@ class Maze {
         void genMaze();
         void render(SDL_Renderer* render);
 
+        int getWidth(){return width;};
+        int getHeight(){return height;};
+
     private:
         Cell** map; 
         int width;
