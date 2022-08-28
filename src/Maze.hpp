@@ -15,6 +15,8 @@ class Maze {
         Cell** map; 
         int width;
         int height;
+
+        std::vector<Cell::Direction> unvisitedNeighbors(int x, int y);
 };
 
 #endif 

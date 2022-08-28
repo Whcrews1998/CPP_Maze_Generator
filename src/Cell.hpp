@@ -8,6 +8,7 @@ class Cell {
 
         Cell();
 
+        bool visited;
         bool walls[4];
         static int cellSize;
 
@@ -22,11 +23,11 @@ class Cell {
         void render(SDL_Renderer* render);
         bool getWall(Direction dir) { return walls[dir]; };
         void setWall(Direction dir, bool val) { walls[dir] = val; };
-        
 
     private:
         int x;
         int y;
+        
 };
 
 #endif 
