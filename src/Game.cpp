@@ -68,6 +68,8 @@ void Game::render() {
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
     SDL_RenderClear(renderer);
     // Draw Maze
+        // Decide wether to draw Maze as being generated
+        // Or draw Maze once finished.
     maze->render(renderer);
     // Present
     SDL_RenderPresent(renderer);

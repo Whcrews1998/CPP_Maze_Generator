@@ -2,6 +2,7 @@
 #define CELL_HPP
 #include <iostream>
 #include <SDL.h>
+#include "config.hpp"
 
 class Cell {
     public:
@@ -24,9 +25,11 @@ class Cell {
         bool getWall(Direction dir) { return walls[dir]; };
         void setWall(Direction dir, bool val) { walls[dir] = val; };
 
-    private:
         int x;
         int y;
+
+    private:
+        
         
 };
 

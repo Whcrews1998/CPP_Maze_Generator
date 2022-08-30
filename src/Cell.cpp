@@ -1,6 +1,6 @@
 #include "Cell.hpp"
 
-int Cell::cellSize = 16;
+int Cell::cellSize = CELL_SIZE;
 
 Cell::Cell() {
     walls[0] = true;
